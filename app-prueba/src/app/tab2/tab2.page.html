@@ -6,6 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content scroll-y="false">
   <cdk-virtual-scroll-viewport itemSize="56" minBufferPx="900" maxBufferPx="1350">
     <ion-list>
@@ -15,13 +16,12 @@
           <ion-avatar slot="start">
             <img src="http://placekitten.com/200/300" />
           </ion-avatar>
-          <ion-label>
-            <h2>Suso</h2>
-            <p>Listen, I've had a pretty messed up day...</p>
+          <ion-label *ngFor="let usuario of usuarios">
+            <h2 *ngIf="this.usuario.id === 1">{{usuario.nombre}}</h2>
+            <p *ngIf="this.usuario.id === 1">{{usuario.texto}}</p>
           </ion-label>
         </ion-item>
       </div>
-
 
       <ion-item lines="full">
         <ion-avatar slot="start">
