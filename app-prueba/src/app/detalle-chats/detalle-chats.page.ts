@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {IUsuario} from "../shared/types";
+import {DatosService} from "../services/datos.service";
 
 @Component({
   selector: 'app-detalle-chats',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleChatsPage implements OnInit {
 
-  constructor() { }
+  public usuario: IUsuario;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private datosService: DatosService
+  ) {}
 
   ngOnInit() {
+    //id es el mismo nombre del parámetro en el fichero app-routing.module.ts (parámetro :id)
+    //Se almacena en usuario_id información (el id) de la ruta asociada
+    const usuario_id = +this.activatedRoute.snapshot.params.id;
+    //Se obtiene el usuario individual (con todos sus datos). En el html
+    //se puede mostrar toda la información del usuario (de momento nombre).
+    this.usuario = this.datosService.getUsuariosById(usuario_id);
+    console.log(this.usuario);
   }
 
 }

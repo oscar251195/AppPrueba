@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'detalle-chats',
+    path: 'detalle-chats/:id',
     loadChildren: () => import('./detalle-chats/detalle-chats.module').then( m => m.DetalleChatsPageModule)
   }
 ];

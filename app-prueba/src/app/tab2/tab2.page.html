@@ -11,127 +11,17 @@
   <cdk-virtual-scroll-viewport itemSize="56" minBufferPx="900" maxBufferPx="1350">
     <ion-list>
 
-      <div>
-        <ion-item lines="full" routerLink="/detalle-chats" routerDirection="forward">
+      <div *ngFor="let usuario of usuarios" (click)="detalleUsuario(usuario.id)">
+        <ion-item lines="full" routerLink="/detalle-chats/{{usuario.id}}" routerDirection="forward">
           <ion-avatar slot="start">
-            <img src="http://placekitten.com/200/300" />
+            <img src="{{usuario.icono}}"/>
           </ion-avatar>
-          <ion-label *ngFor="let usuario of usuarios">
-            <h2 *ngIf="this.usuario.id === 1">{{usuario.nombre}}</h2>
-            <p *ngIf="this.usuario.id === 1">{{usuario.texto}}</p>
+          <ion-label>
+            <h2>{{usuario.nombre}}</h2>
+            <p>{{usuario.mensaje}}</p>
           </ion-label>
         </ion-item>
       </div>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>JR</h2>
-          <p>I've got enough on my plate as it is, and I...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Óscar</h2>
-          <p>Esto es una prueba de chat</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/200/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Suso</h2>
-          <p>Listen, I've had a pretty messed up day...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>JR</h2>
-          <p>I've got enough on my plate as it is, and I...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Óscar</h2>
-          <p>Esto es una prueba de chat</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/200/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Suso</h2>
-          <p>Listen, I've had a pretty messed up day...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>JR</h2>
-          <p>I've got enough on my plate as it is, and I...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Óscar</h2>
-          <p>Esto es una prueba de chat</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/200/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Suso</h2>
-          <p>Listen, I've had a pretty messed up day...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>JR</h2>
-          <p>I've got enough on my plate as it is, and I...</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-item lines="full">
-        <ion-avatar slot="start">
-          <img src="http://placekitten.com/300/300" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Óscar</h2>
-          <p>Esto es una prueba de chat</p>
-        </ion-label>
-      </ion-item>
     </ion-list>
   </cdk-virtual-scroll-viewport>
 

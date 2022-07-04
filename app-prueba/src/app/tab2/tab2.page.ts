@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Router} from "@angular/router";
+import {NavController} from "@ionic/angular";
 import {IUsuario} from "../shared/types";
+import {DatosService} from "../services/datos.service";
 
 @Component({
   selector: 'app-tab2',
@@ -7,21 +10,22 @@ import {IUsuario} from "../shared/types";
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit{
+  public usuarios: Array<IUsuario>
 
-  usuario: IUsuario[];
-
-  usuarios =[
-      {id: 1, nombre: 'Suso ', texto: 'Hola, soy Suso!'},
-      {id: 2, nombre: 'JR ', texto: 'Hola, soy JR Pavía!'},
-      {id: 3, nombre: 'Óscar ', texto:'Hola, soy Óscar'},
-    ];
-
-  constructor() {}
+  constructor(
+    private router: Router,
+    public navControl: NavController,
+    private datosService: DatosService
+  ) {}
 
   ngOnInit(): void {
-
-
+    //Carga de usuarios al iniciar la app
+    this.usuarios = this.datosService.getUsuarios();
   }
 
+  detalleUsuario(usuario_id): void {
+    //Envía a la página de detalle-chats el id del usuario que se ha pinchado
+    this.navControl.navigateForward(['detalle-chats', usuario_id]);
+  }
 
 }
