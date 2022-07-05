@@ -12,6 +12,45 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-footer> <!--Footer-->
+  <ion-item> <!--Contenedor para texto, botones, iconos, inputs, etc-->
+    <ion-toolbar> <!--Barras de herramientas-->
+      <div class="textChat"> <!--Div que da forma al cuadro de iconos y texto-->
+        <ion-grid> <!--Cuadrícula flexbox-->
+          <ion-row> <!--En la misma FILA se añaden los iconos y el campo de input text-->
 
-<ion-content>
-</ion-content>
+            <ion-buttons>
+              <ion-button> <!--Botón para acceder a iconos-->
+                <ion-icon name="happy-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+            <ion-input placeholder="Mensaje"></ion-input> <!--Cuadro de texto para escribir-->
+
+            <ion-buttons>
+              <ion-button> <!--Botón para acceder a multimedia-->
+                <ion-icon name="attach-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+
+            <ion-buttons>
+              <ion-button> <!--Botón para abrir cámara-->
+                <ion-icon name="camera-sharp"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+
+          </ion-row> <!--Se cierra la fila-->
+        </ion-grid> <!--Se cierra la cuadrícula-->
+      </div>
+
+    </ion-toolbar>
+
+    <div class="divEnviar"> <!--Div para diferenciar entre enviar mensaje o grabar audio-->
+      <ion-buttons>
+        <ion-button>
+          <ion-icon name="mic-sharp" class="iconoMicEnv"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+
+  </ion-item>
+</ion-footer>
