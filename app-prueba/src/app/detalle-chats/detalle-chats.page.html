@@ -12,6 +12,16 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <div class="div_conversacion">
+    <span class="estilo_chat">
+      Hola!
+    </span>
+  </div>
+
+</ion-content>
+
+
 <ion-footer> <!--Footer-->
   <ion-item> <!--Contenedor para texto, botones, iconos, inputs, etc-->
     <ion-toolbar> <!--Barras de herramientas-->
@@ -24,7 +34,7 @@
                 <ion-icon name="happy-outline"></ion-icon>
               </ion-button>
             </ion-buttons>
-            <ion-input placeholder="Mensaje"></ion-input> <!--Cuadro de texto para escribir-->
+            <ion-input placeholder="Mensaje" #inputMsg [(ngModel)]="inputmensaje" (ionChange)="onChangeMensaje($event)"></ion-input> <!--Cuadro de texto para escribir-->
 
             <ion-buttons>
               <ion-button> <!--Botón para acceder a multimedia-->
@@ -45,9 +55,15 @@
     </ion-toolbar>
 
     <div class="divEnviar"> <!--Div para diferenciar entre enviar mensaje o grabar audio-->
-      <ion-buttons>
+      <ion-buttons *ngIf="cambioIcono==false">
         <ion-button>
           <ion-icon name="mic-sharp" class="iconoMicEnv"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons *ngIf="cambioIcono==true">
+        <ion-button>
+          <ion-icon name="send-sharp" class="iconoMicEnv"></ion-icon>
         </ion-button>
       </ion-buttons>
     </div>
