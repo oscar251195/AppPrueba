@@ -13,14 +13,19 @@
 </ion-header>
 
 <ion-content>
-  <div class="div_conversacion">
-    <span class="estilo_chat">
-      Hola!
+  <div class="div_conversacion_emisor" *ngIf="mostrarDiv">
+    <span class="estilo_chat_enviado">
+      {{this.mensajeEmisor}}
+    </span>
+  </div>
+
+  <div class="div_conversacion_receptor">
+    <span class="estilo_chat_recibido">
+      {{usuario.mensaje}}
     </span>
   </div>
 
 </ion-content>
-
 
 <ion-footer> <!--Footer-->
   <ion-item> <!--Contenedor para texto, botones, iconos, inputs, etc-->

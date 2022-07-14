@@ -15,6 +15,8 @@ export class DetalleChatsPage implements OnInit {
 
   inputmensaje: any;
   cambioIcono: boolean = false;
+  mostrarDiv: boolean = false;
+  mensajeEmisor: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,16 +43,23 @@ export class DetalleChatsPage implements OnInit {
     }, 150);
   }
 
-  onChangeMensaje(data) {
-    console.log(data);
-    console.log('INPUT');
-    console.log(this.inputmensaje.length);
-    if(this.inputmensaje.length==0) {
-      this.cambioIcono= false;
+  onChangeMensaje(event) {
+    console.log(event);
+
+    if (this.inputmensaje.length == 0) {
+      this.cambioIcono = false;
+      this.mostrarDiv = false;
     } else {
-      this.cambioIcono= true;
+      if (event.key === "Enter") {
+        console.log(event);
+      }
+      this.cambioIcono = true;
+      this.mostrarDiv = true;
+
     }
-    console.log(this.cambioIcono);
+
+    this.mensajeEmisor = this.inputmensaje;
+    console.log(this.mensajeEmisor)
   }
 
 }
